@@ -28,7 +28,7 @@ func main() {
 	}()
 
 	// fail intentionally
-	// log.Fatalln("Let app crash intentionally *BOOM*")
+	log.Fatalln("Let app crash intentionally *BOOM*")
 
 	// create web-router
 	mux := http.NewServeMux()
