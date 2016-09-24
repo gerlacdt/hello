@@ -28,7 +28,7 @@ func main() {
 	}()
 
 	// fail intentionally
-	log.Fatalln("Let app crash intentionally *BOOM*")
+	// log.Fatalln("Let app crash intentionally *BOOM*")
 
 	// create web-router
 	mux := http.NewServeMux()
@@ -37,5 +37,5 @@ func main() {
 	mux.Handle("/health", http.HandlerFunc(handlers.HealthHandler))
 
 	// start server
-	log.Fatal(http.ListenAndServe("localhost:3000", mux))
+	log.Fatal(http.ListenAndServe(":3000", mux))
 }
