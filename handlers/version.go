@@ -10,7 +10,7 @@ type VersionResponse struct {
 	Version string `json:"version"`
 }
 
-var version string = "v0.3.0"
+var version string = "v0.4.0"
 
 func VersionHandler(w http.ResponseWriter, r *http.Request) {
 	response := VersionResponse{
