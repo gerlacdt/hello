@@ -27,6 +27,9 @@ func main() {
 		log.Fatalf("Cleaning up before killing process...")
 	}()
 
+	// fail intentionally
+	log.Fatalln("Let app crash intentionally *BOOM*")
+
 	// create web-router
 	mux := http.NewServeMux()
 	mux.Handle("/hello", http.HandlerFunc(handlers.HelloHandler))
