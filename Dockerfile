@@ -10,4 +10,4 @@ RUN go get && go build -o main
 
 CMD ["./main"]
 
-# EXPOSE not needed because of dynamic portbinding with nomad
+EXPOSE 8080

@@ -22,11 +22,6 @@ func main() {
 
 	logEnvionmentVariables()
 
-	httpAddr := os.Getenv("NOMAD_ADDR_http")
-	if httpAddr == "" {
-		log.Fatal("NOMAD_ADDR_http must be set!")
-	}
-
 	// create web-router
 	mux := http.NewServeMux()
 	mux.Handle("/hello", http.HandlerFunc(handlers.HelloHandler))
@@ -37,7 +32,7 @@ func main() {
 
 	// start server
 	httpServer := manners.NewServer()
-	httpServer.Addr = httpAddr
+	httpServer.Addr = ":8080"
 	httpServer.Handler = mux
 
 	// handle graceful shutdown
