@@ -8,6 +8,4 @@ WORKDIR /go/src/github.com/gerlacdt/hello
 # build binary
 RUN go get && go build -o main
 
-EXPOSE 8080
-
 CMD ["./main"]

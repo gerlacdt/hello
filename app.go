@@ -22,6 +22,13 @@ func main() {
 
 	logEnvionmentVariables()
 
+	httpPort := os.Getenv("NOMAD_PORT_http")
+	if httpPort == "" {
+		log.Fatal("NOMAD_PORT_http must be set and not-empty")
+	}
+
+	log.Printf("HTTP service port listening on %s", httpPort)
+
 	// create web-router
 	mux := http.NewServeMux()
 	mux.Handle("/hello", http.HandlerFunc(handlers.HelloHandler))
@@ -32,7 +39,7 @@ func main() {
 
 	// start server
 	httpServer := manners.NewServer()
-	httpServer.Addr = ":8080"
+	httpServer.Addr = ":" + httpPort
 	httpServer.Handler = mux
 
 	// handle graceful shutdown
