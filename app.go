@@ -2,11 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/braintree/manners"
-	"github.com/gerlacdt/hello/handlers"
 	"log"
 	"net/http"
 	"os"
+
+	"github.com/braintree/manners"
+	"github.com/gerlacdt/hello/handlers"
+
 	"os/signal"
 	"syscall"
 )
