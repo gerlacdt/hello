@@ -1,11 +1,13 @@
-FROM golang:1.7.1
+FROM golang:1.12.9-alpine3.10 as build
 
-# copy project-src in GOPATH of golang
-# docker image, so it can be build
-ADD . /go/src/github.com/gerlacdt/hello
+RUN apk add --no-cache git
 WORKDIR /go/src/github.com/gerlacdt/hello
+COPY . .
+RUN go get -d -v ./...
+RUN go build
 
-# build binary
-RUN go get && go build -o main
+# step 2
+FROM alpine:3.10.2
 
-CMD ["./main"]
+COPY --from=build /go/src/github.com/gerlacdt/hello/hello /hello
+CMD ["/hello"]
