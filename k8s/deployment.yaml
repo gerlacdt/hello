@@ -15,7 +15,7 @@ spec:
         app: hello
     spec:
       containers:
-      - image: gerlacdt/helloapp:v0.4.0
+      - image: gerlacdt/helloapp:v0.5.0
         name: hello
         securityContext:
           capabilities:

@@ -10,13 +10,13 @@ type VersionResponse struct {
 	Version string `json:"version"`
 }
 
-var version string = "v0.4.0"
+var Version string = "v0.5.0"
 
 func VersionHandler(w http.ResponseWriter, r *http.Request) {
 	response := VersionResponse{
-		Version: version,
+		Version: Version,
 	}
-	log.Printf("/version request --> %s\n", version)
+	log.Printf("/version request --> %s\n", Version)
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(response)
 	return

@@ -20,7 +20,7 @@ func logEnvionmentVariables() {
 }
 
 func main() {
-	log.Println("Starting hello-app...")
+	log.Printf("Starting hello-app, version: %s\n", handlers.Version)
 
 	logEnvionmentVariables()
 
