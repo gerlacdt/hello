@@ -15,7 +15,7 @@ spec:
         app: hello
     spec:
       containers:
-      - image: gerlacdt/helloapp:v0.1.0
+      - image: gerlacdt/helloapp:v0.4.0
         name: hello
         securityContext:
           capabilities:
@@ -25,7 +25,7 @@ spec:
           runAsNonRoot: true
           allowPrivilegeEscalation: false
         env:
-          - name: NOMAD_HTTP_port
+          - name: NOMAD_PORT_http
             value: "8080"
         ports:
         - containerPort: 8080
