@@ -34,10 +34,13 @@ func main() {
 	// create web-router
 	mux := http.NewServeMux()
 	mux.Handle("/hello", http.HandlerFunc(handlers.HelloHandler))
-	mux.Handle("/hello/version", http.HandlerFunc(handlers.VersionHandler))
-	mux.Handle("/hello/health", http.HandlerFunc(handlers.HealthHandler))
 	mux.Handle("/version", http.HandlerFunc(handlers.VersionHandler))
 	mux.Handle("/health", http.HandlerFunc(handlers.HealthHandler))
+	mux.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.WriteHeader(http.StatusNotFound)
+		w.Header().Set("Content-Type", "application/json")
+		fmt.Fprintf(w, "{\"msg\": \"NOT_FOUND\"}")
+	})
 
 	// start server
 	httpServer := manners.NewServer()
