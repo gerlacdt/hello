@@ -40,6 +40,8 @@ deployment or change the number of replicas without to touch the yaml
 helm templates.
 
 ``` bash
+cd k8s
+
 # install helm chart
 helm install --name myhello hello
 
