@@ -1,0 +1,4 @@
+name: hello
+sources:
+- https://github.com/gerlacdt/hello.git
+version: 1.0.1

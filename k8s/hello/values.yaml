@@ -1,0 +1,7 @@
+environment: development
+container:
+  name: hello
+  port: 8080
+  image: gerlacdt/helloapp
+  tag: v0.5.0
+replicas: 1
