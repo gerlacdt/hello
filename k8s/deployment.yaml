@@ -27,6 +27,11 @@ spec:
         env:
           - name: NOMAD_PORT_http
             value: "8080"
+          - name: MAGIC_WORD
+            valueFrom:
+              secretKeyRef:
+                name: hello-secret
+                key: magicWord
         ports:
         - containerPort: 8080
           protocol: TCP
