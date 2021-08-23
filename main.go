@@ -5,12 +5,12 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"syscall"
 
 	"github.com/braintree/manners"
 	"github.com/gerlacdt/hello/handlers"
 
 	"os/signal"
-	"syscall"
 )
 
 func logEnvionmentVariables() {
